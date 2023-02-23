@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fb_post_generator/static/css/main.22c1822d.css",
+    "main.js": "/fb_post_generator/static/js/main.39eabcd6.js",
+    "index.html": "/fb_post_generator/index.html",
+    "main.22c1822d.css.map": "/fb_post_generator/static/css/main.22c1822d.css.map",
+    "main.39eabcd6.js.map": "/fb_post_generator/static/js/main.39eabcd6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22c1822d.css",
+    "static/js/main.39eabcd6.js"
+  ]
+}
