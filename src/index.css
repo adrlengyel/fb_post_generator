@@ -12,19 +12,22 @@ body {
     display: table-cell;
     color: white;
     vertical-align: middle;
+    text-align: center;
     background-color: rgb(53, 52, 52);
 }
 
 header{
-    font: 70px "Century Gothic", Futura, sans-serif;
+    font: 3em "Century Gothic", Futura, sans-serif;
     vertical-align: middle;
     background-color: rgb(53, 52, 52);
 }
 
 textarea {
-    font: 15px "Century Gothic", Futura, sans-serif;
-    text-align: left;
-    resize: none;
+  width: 38rem;
+  height: 12rem;
+  font: 15px "Century Gothic", Futura, sans-serif;
+  text-align: left;
+  resize: none;
 }
 
 .button {
@@ -68,4 +71,33 @@ textarea {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
+}
+
+select {
+  width: 80%;
+  min-width: 15ch;
+  max-width: 30ch;
+  margin-left: 5rem;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+@media (max-width: 592px) {
+  select {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 592px) {
+  textarea {
+    width: 96%;
+  }
 }

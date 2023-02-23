@@ -10,12 +10,11 @@ class TextProcessor extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        value: undefined
+        value: undefined,
+        menuType: 'b8f77b2388dec790@tnj2tdHT'
       };
     }
   
-
-
     handleClick(){
       //console.log(this.state.value);
 
@@ -27,7 +26,9 @@ class TextProcessor extends React.Component {
 
       console.log(menu);
 
-      let path = 'https://api.apitemplate.io/a3c77b238884cdce@LNAKUANl/image.png?menu.text='      
+      let menuType = this.state.menuType
+
+      let path = 'https://api.apitemplate.io/' + menuType + '/image.png?menu.text='      
       menu = convertToUrlParameter(menu)
 
       path = path + menu
@@ -35,68 +36,19 @@ class TextProcessor extends React.Component {
       console.log(path)
 
       window.open(path) 
-
-      // const splitMenu = this.state.value.split('\n')
-
-      // console.log(splitMenu)
-
-      // let mainMenuItems = splitMenu.map((item) => {
-      //   let [day, soup, dishes] = item.split(':').map((val) => val.trim());
-      //   if (!day || !soup) return;
-      //   return { day, soup, dishes: []};
-      // });
-
-      // mainMenuItems = mainMenuItems.filter(function( element ) {
-      //   return element !== undefined;
-      // });
-
-      // let dishes = splitMenu.filter(function(element) {
-      //   return !element.includes(':');
-      // })
-
-      // dishes = dishes.map(s => s.trim());
-      // dishes = dishes.map(s => s + "€");
-
-      // console.log(dishes);
-
-      // let shouldSkip = false;
-      // let firstIteration = true;
-      // let j = 0
-
-      // mainMenuItems.forEach(i => {
-
-      //   while (j !== dishes.length) {
-
-      //     if(dishes[j].charAt(0) === '1' && !firstIteration){
-      //       shouldSkip = true;
-      //     }
-
-      //     if(shouldSkip){
-      //       break;
-      //     }
-
-      //     i.dishes.push(dishes[j]);
-      //     firstIteration = false;
-      //     j++;
-      //   } 
-
-      //   shouldSkip = false;
-      //   firstIteration = true;
-      // })
-    
-      // var menu = JSON.stringify(mainMenuItems);
-
-      // console.log(menu)
-
     }
 
-    handleChange(event) {
+    handleTextAreaChange(event) {
       this.setState({value: event.target.value})
     } 
 
-    handlePaste(event) {
+    handleTextAreaPaste(event) {
       this.setState({value: event.target.value})
     } 
+
+    handleSelectChange(event){
+      this.setState({menuType: event.target.value})
+    }
   
     render() {
       return (
@@ -104,10 +56,14 @@ class TextProcessor extends React.Component {
           <label className='enterText'>
             Zadajte text:
           </label>
-          <br />
+          <select name="menuType" id="menuType" onChange={this.handleSelectChange.bind(this)}>
+            <option value="b8f77b2388dec790@tnj2tdHT">Menu1</option>
+            <option value="8d177b2388d53556@nndIKhlU">Menu2</option>
+            <option value="2ee77b2388dcefd6@1bIPE2RN">Menu3</option>
+          </select>
           <textarea className='enteredText' rows="20" cols="80" 
-          onChange={this.handleChange.bind(this)} value={this.state.value}
-          onPaste={this.handlePaste.bind(this)}>
+          onChange={this.handleTextAreaChange.bind(this)} value={this.state.value}
+          onPaste={this.handleTextAreaPaste.bind(this)}>
           </textarea>
           <br/>
           <label className='button' onClick={() => this.handleClick()}>
@@ -125,7 +81,6 @@ class Main extends React.Component {
         <header className="welcome">
             Vitajte!
         </header>
-        <br/>
         <br/>
         <TextProcessor />
     </div>
